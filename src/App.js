@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from './Layout/Layout'
 import Categories from './Categories/Categories'
-import { RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom'
+import { RouterProvider, createHashRouter } from 'react-router-dom'
 import Home from './Home/Home'
 import Products from './Products/Products'
 import Brands from './Brands/Brands'

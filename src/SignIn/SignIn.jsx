@@ -20,16 +20,14 @@ export default function SignIn() {
     setLoading(false)
     await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', values)
     .then(({data}) =>{
-      localStorage.setItem('token', data.token)
       if (data.message === 'success'){
         setUserToken(data.token)
         navigate('/Home')
+        localStorage.setItem('token', data.token)
       }
     }).catch((err) =>{SetErrorMsg(err.response.data.message)})
     setLoading(true)
-
   }
-
 
 function validate(values){
 

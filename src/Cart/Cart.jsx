@@ -3,6 +3,7 @@ import { cartContext } from '../Context/CartContext'
 import Loading from '../Loading/Loading'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 
 export default function Cart() {
@@ -47,36 +48,37 @@ export default function Cart() {
       setData(data)
 }
 }
-
 if(loading) return <Loading/>
-if(data.numOfCartItems == 0 || data==null) return <div className='pt-5 mt-4 text-center'><h2 className=' text-main mt-5 pt-5'>Your cart is empty</h2>
-<button className='btn bg-danger-subtle mt-2 p-3 '> <Link to={'/home'}> go shopping </Link></button></div>
-  return ( 
-    <>
+if(data.numOfCartItems == 0 || data==null) return <div className='pt-5 mt-4 text-center'><h2 className=' text-main mt-5 pt-5'><b>Your cart is empty</b></h2>
+<button className='btn mt-2 p-3 bg-info'> <Link to={'/home'}> go shopping </Link></button></div>
+  return ( <>
+<Helmet>
+      <title>Shopping Cart</title>
+    </Helmet>
     <div className="container my-5 bg-main-light pt-3 rounded-1">
       <h3 className='mt-4 py-2'>your shopping cart :</h3>
       <h5 className='text-main'>total price: {data?.data.totalCartPrice} EGP</h5>
       {data?.data.products.map(item=>{
-        return <div className="row border-bottom" key={item._id}>
-                <div className="col-md-1 my-2">
-                 <img src={item.product.imageCover} className='w-100' alt="" />
-       </div>
-       <div className="col-md-10 mt-3 d-flex justify-content-between">
-         <div>
-           <p className='bolder p-0 m-0'>{item.product.title}</p>
-           <p className='text-main p-0'> price: {item.price} EGP</p>
-           <button className='btn text-white mb-2 text-bg-danger' onClick={()=>deleteProduct(item.product._id)}><i className="fa-solid fa-trash-can"></i> remove</button>
-         </div>
-         <div>
-           <button  className=' btn brdr' onClick={()=>{
-             {(item.count<=1)? deleteProduct(item.product._id) 
-             :  update(item.product._id, item.count-1)}
-           }}>-</button>
-           <span className='px-3'>{item.count}</span>
-           <button className=' btn brdr'onClick={()=>update(item.product._id, item.count+1 )} >+</button>
-         </div>
-       </div>
-     </div>
+return <div className="row border-bottom" key={item._id}>
+            <div className="col-md-1 my-2">
+                <img src={item.product.imageCover} className='w-100' alt="" />
+            </div>
+        <div className="col-md-10 mt-3 d-flex justify-content-between">
+          <div>
+            <p className='bolder p-0 m-0'>{item.product.title}</p>
+            <p className='text-main p-0'> price: {item.price} EGP</p>
+            <button className='btn text-white mb-2 text-bg-danger' onClick={()=>deleteProduct(item.product._id)}><i className="fa-solid fa-trash-can"></i> remove</button>
+          </div>
+        <div>
+            <button  className=' btn brdr' onClick={()=>{
+              {(item.count<=1)? deleteProduct(item.product._id) 
+              :  update(item.product._id, item.count-1)}
+            }}>-</button>
+          <span className='px-3'>{item.count}</span>
+            <button className=' btn brdr'onClick={()=>update(item.product._id, item.count+1 )} >+</button>
+        </div>
+      </div>
+    </div>
       }
         
       )}

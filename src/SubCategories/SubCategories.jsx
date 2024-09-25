@@ -28,7 +28,7 @@ export default function SubCategories() {
     <div className='my-5 container pt-5'>
         <h2>SubCategories:</h2>
       <div className="row">
-        {subCategory.map(item=>{
+        {subCategory?.map(item=>{
           return <SubCategory item={item} key={item._id}/>
         })}
         </div>

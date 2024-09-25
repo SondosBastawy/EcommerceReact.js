@@ -23,8 +23,7 @@ export default function Navbar() {
     let data = await getCart()
     setCounter(data.numOfCartItems)
   })()
-  }, [userToken])
-
+  }, [])
 
   return (
     <>
@@ -36,7 +35,7 @@ export default function Navbar() {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        {userToken != '' ?<>
+        {userToken !== null ?<>
           <li className="nav-item">
           <NavLink className="nav-link" aria-current="page" to="/home">Home</NavLink>
         </li>
@@ -48,14 +47,13 @@ export default function Navbar() {
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/Products">Products</NavLink>
-        </li></>:''}
+        </li></>:'' }
         
       </ul>
       
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
         
-        {userToken !=''?
-        <>
+        {userToken !== null ?<>
         <li className="nav-item border-start">
           <NavLink className="nav-link position-relative" to="/wishlist"> Wishlist
           <i class="fa-regular fa-heart"></i>
@@ -72,10 +70,10 @@ export default function Navbar() {
           <button className="nav-link"  onClick={()=> signOut()}>SignOut</button>
         </li></>: <>
         <li className="nav-item px-4 border-start">
-          <NavLink className="nav-link" to="/signin">Signin</NavLink>
+          <NavLink className="nav-link" to="/signin">logIn</NavLink>
         </li>
         <li className="nav-item px-4 border-start">
-        <NavLink className="nav-link" to="/signup">Signup</NavLink>
+        <NavLink className="nav-link" to="/signup">Register</NavLink>
       </li></>}
         
       </ul>
