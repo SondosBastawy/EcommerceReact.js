@@ -11,11 +11,11 @@ export default function WishList() {
     let data = await addToCart(productId)
     if (data.status === 'success'){
       toast.success('product added successfully')
-      // setCounter(data.numOfCartItems)
+      // setCounter(data.numOfWishList)
     }
   }
 
-  let { getWishList , addToCart , } =useContext(cartContext)
+  let { getWishList , addToCart } =useContext(cartContext)
   let [data, setData] = useState(null)
   let [loading, setLoading] = useState(true)
   

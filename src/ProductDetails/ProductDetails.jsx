@@ -26,7 +26,7 @@ export default function ProductDetails() {
 
   return (
     <> 
-    {isLoading?<div><Loading/></div>:<div className="container mt-5">
+    {isLoading?<div><Loading/></div>:<div className="container mt-5 mb-4">
       <div className="row">
         <div className="col-md-3 mt-5">
           <img src={data?.data.data.imageCover} className='w-100' alt=""/>

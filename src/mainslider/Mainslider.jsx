@@ -20,7 +20,7 @@ export default function Mainslider() {
   };
   return (
     <>
-    <div className='mt-5 pt-3'>
+    <div className='mt-5 pt-4'>
     <Slider {...settings}>
       
       <img src={slider1} alt="Slider1"/>

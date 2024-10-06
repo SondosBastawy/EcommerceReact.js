@@ -15,11 +15,11 @@ export default function Brands() {
       {isLoading ? (
         <div><Loading/></div>
       ) : (
-        <div className="container py-5">
+        <div className="container py-5 mt-3">
           <div className="row">
             {data?.data.data.map((item) => (
-              <div className="col-md-3 cursor-pointer" key={item._id}>
-                <div className="brand py-3 px-2 w-75">
+              <div className="col-md-3 cursor-pointer my-2" key={item._id}>
+                <div className=" py-1 px-2 brand">
                   <img src={item.image} alt="brand" />
                   <h4 className="text-center">
                     <b>{item.name}</b>

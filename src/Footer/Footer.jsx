@@ -1,29 +1,103 @@
 import React from 'react'
+import {
+  Box,
+  FooterContainer,
+  Row,
+  Column,
+  FooterLink,
+  Heading,
+} from "./FooterStyled";
 
-export default function Footer() {
-  return (
-    <>
-      <div className="footer   w-full border-t border-gray-200 bg-white/75 backdrop-blur-lg">
-                <div className="footer  container max-w-[1400px] mx-auto p-4">
-                    <h4 className='text-xl font-semibold'>Get The Fresh Cart app</h4>
-                    <p className='md:text-xl text-md opacity-75'>We will send you a link, Open it on your phone to download the app.</p>
-                    <div>
-                        <div className='flex flex-col md:flex-row mt-3 gap-5 md:gap-20'>
-                            <input type="email" placeholder=' Email...' id="small-input" className="block w-full text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#3bb77e]  py-3 focus:border-[#3bb77e] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring- dark:focus:border-" />
-                            <button type="button" className="focus:outline-none text-white bg-green-500   font-medium rounded-lg text-sm px-12  dark:bg-[#3bb77e] dark:hover:bg-[#3bb77e] text-nowrap py-3 dark:focus:ring-green-800">Share App Link</button>
-                        </div>
-                        <div className='mt-3 flex flex-col lg:flex-row justify-between items-center p-1  border-slate-300  border-[.5px]  border-x-0'>
-                            <p className='text-xl  text-center flex-col flex justify-center items-center font-light  md:gap-0 md:flex-row '> <span>Payment Partners</span></p>
-                            <p className='text-xl flex-col md:flex-row text-center md:text-left  font-light flex   items-center gap-2'> Get Delivery With FreshCart </p>
-                        </div>
-                        <div className='mt-3 flex flex-col md:flex-row justify-between items-center p-1  '>
-                            <p className='text-xl font-light flex flex-row  items-center gap-2'>Our Social Links</p>
-                            <p className='text-xl font-light flex flex-row  items-center gap-2'><div _ngcontent-ng-c2698397363="" className="social-links"><a _ngcontent-ng-c2698397363="" className="cursor-pointer"><i _ngcontent-ng-c2698397363="" className="fab fa-instagram mx-2"></i></a><a _ngcontent-ng-c2698397363="" className="cursor-pointer"><i _ngcontent-ng-c2698397363="" className="fab fa-facebook mx-2"></i></a><a _ngcontent-ng-c2698397363="" className="cursor-pointer"><i _ngcontent-ng-c2698397363="" className="fab fa-tiktok mx-2"></i></a><a _ngcontent-ng-c2698397363="" className="cursor-pointer"><i _ngcontent-ng-c2698397363="" className="fab fa-twitter mx-2"></i></a><a _ngcontent-ng-c2698397363="" className="cursor-pointer"><i _ngcontent-ng-c2698397363="" className="fab fa-linkedin mx-2"></i></a><a _ngcontent-ng-c2698397363="" className="cursor-pointer"><i _ngcontent-ng-c2698397363="" className="fab fa-youtube mx-2"></i></a></div></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+// eslint-disable-next-line import/no-anonymous-default-export
+export default function () {
+  return <>
 
-    </>
-  )
+<Box>
+            <h1
+                style={{
+                    color: "#3f95cb",
+                    textAlign: "center",
+                    marginTop: "5px",
+                }}
+            >
+                <b>FreshCart </b>
+            </h1>
+            <FooterContainer>
+                <Row>
+                    <Column>
+                        <Heading>About Us</Heading>
+                        <FooterLink href="#">
+                            Aim
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Vision
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Testimonials
+                        </FooterLink>
+                    </Column>
+                    <Column>
+                        <Heading>Services</Heading>
+                        <FooterLink href="#">
+                            Writing
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Internships
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Coding
+                        </FooterLink>
+                    </Column>
+                    <Column>
+                        <Heading>Contact Us</Heading>
+                        <FooterLink href="#">
+                            Uttar Pradesh
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Ahemdabad
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Indore
+                        </FooterLink>
+                    </Column>
+                    <Column>
+                        <Heading>Social Media</Heading>
+                        <FooterLink href="#">
+                            <i className="fab fa-facebook-f">
+                                <span
+                                    style={{
+                                        marginLeft: "10px",
+                                    }}
+                                >
+                                    Facebook
+                                </span>
+                            </i>
+                        </FooterLink>
+                        <FooterLink href="#">
+                            <i className="fab fa-instagram">
+                                <span
+                                    style={{
+                                        marginLeft: "10px",
+                                    }}
+                                >
+                                    Instagram
+                                </span>
+                            </i>
+                        </FooterLink>
+                        <FooterLink href="#">
+                            <i className="fab fa-youtube">
+                                <span
+                                    style={{
+                                        marginLeft: "10px",
+                                    }}
+                                >
+                                    Youtube
+                                </span>
+                            </i>
+                        </FooterLink>
+                    </Column>
+                </Row>
+            </FooterContainer>
+        </Box>
+    </> 
 }
