@@ -18,7 +18,7 @@ export default function Pagination({getPage}) {
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="previous"
 
         containerClassName='pagination justify-content-center p-3'
         pageClassName={'page-item'}
