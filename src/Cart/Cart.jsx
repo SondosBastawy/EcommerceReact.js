@@ -50,14 +50,15 @@ export default function Cart() {
 }
 if(loading) return <Loading/>
 if(data.numOfCartItems == 0 || data==null) return <div className='pt-5 mt-4 text-center'><h2 className=' text-main mt-5 pt-5'><b>Your cart is empty</b></h2>
-<button className='btn mt-2 p-3 bg-info'> <Link to={'/home'}> go shopping </Link></button></div>
+<button className='btn mt-2 p-3 bg-info mb-5'> <Link to={'/home'}> <b> Go shopping</b> </Link></button>
+</div>
   return ( <>
 <Helmet>
       <title>Shopping Cart</title>
     </Helmet>
     <div className="container my-5 bg-main-light pt-3 rounded-1">
-      <h3 className='mt-4 py-2'>your shopping cart :</h3>
-      <h5 className='text-main'>total price: {data?.data.totalCartPrice} EGP</h5>
+      <h3 className='mt-4 py-2'><b>Your shopping cart :</b></h3>
+      <h5 className='text-main'><b>Total price:</b> {data?.data.totalCartPrice} EGP</h5>
       {data?.data.products.map(item=>{
 return <div className="row border-bottom" key={item._id}>
             <div className="col-md-1 my-2">
@@ -75,14 +76,14 @@ return <div className="row border-bottom" key={item._id}>
               :  update(item.product._id, item.count-1)}
             }}>-</button>
           <span className='px-3'>{item.count}</span>
-            <button className=' btn brdr'onClick={()=>update(item.product._id, item.count+1 )} >+</button>
+            <button className=' btn brdr' onClick={()=>update(item.product._id, item.count+1 )} >+</button>
         </div>
       </div>
     </div>
       }
         
       )}
-      <Link className='bg-main text-white btn my-3' to={`/address/${data.data._id}`}> Place Order</Link>
+      <Link className='bg-main text-white btn my-3 mx-5' to={`/address/${data.data._id}`}> Place Order</Link>
       
     </div>
 

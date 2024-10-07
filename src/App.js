@@ -24,139 +24,134 @@ import ForgotPassword from "./ForgotPassword/ForgotPassword";
 import VerifyCode from "./VerifyCode/VerifyCode";
 import NewPassword from "./NewPassword/NewPassword";
 import SubCategories from "./SubCategories/SubCategories";
+import WishListContextProvider from "./Context/WishListContext";
 
-export default function App() {
+
+export default function App () {
   let routes = createHashRouter([
     {
-      path: "/",
+      path: '/',
       element: <Layout />,
       children: [
         {
           index: true,
-          element: (
-            <ProtectedRoutes>
-              {" "}
-              <Home />{" "}
-            </ProtectedRoutes>
-          ),
+          element: <Home />
         },
         {
-          path: "home",
-          element: (
-            <ProtectedRoutes>
-              {" "}
-              <Home />
-            </ProtectedRoutes>
-          ),
+          path: 'home',
+          element: <Home />
         },
         {
-          path: "Products",
+          path: 'Products',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <Products />{" "}
+              {' '}
+              <Products />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
         {
-          path: "Brands",
+          path: 'Brands',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <Brands />{" "}
+              {' '}
+              <Brands />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
         {
-          path: "Cart",
+          path: 'Cart',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <Cart />{" "}
+              {' '}
+              <Cart />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
         {
-          path: "WishList",
+          path: 'WishList',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <WishList />{" "}
+              {' '}
+              <WishList />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
         {
-          path: "Categories",
+          path: 'Categories',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <Categories />{" "}
+              {' '}
+              <Categories />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
         {
-          path: "SubCategories/:Id",
+          path: 'SubCategories/:Id',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <SubCategories />{" "}
+              {' '}
+              <SubCategories />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
         {
-          path: "Product-details/:MyId",
+          path: 'Product-details/:MyId',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <ProductDetails />{" "}
+              {' '}
+              <ProductDetails />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
         {
-          path: "Category/:Id",
+          path: 'Category/:Id',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <Category />{" "}
+              {' '}
+              <Category />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
         {
-          path: "address/:id",
+          path: 'address/:id',
           element: (
             <ProtectedRoutes>
-              {" "}
-              <Address />{" "}
+              {' '}
+              <Address />{' '}
             </ProtectedRoutes>
-          ),
+          )
         },
-        { path: "SignIn", element: <SignIn /> },
-        { path: "forgot-password", element: <ForgotPassword /> },
-        { path: "verifyCode", element: <VerifyCode /> },
-        { path: "new-Password", element: <NewPassword /> },
-        { path: "signOut", element: <SignOut /> },
-        { path: "*", element: <NotFound /> },
-      ],
+        { path: 'SignIn', element: <SignIn /> },
+        { path: 'forgot-password', element: <ForgotPassword /> },
+        { path: 'verifyCode', element: <VerifyCode /> },
+        { path: 'new-Password', element: <NewPassword /> },
+        { path: 'signOut', element: <SignOut /> },
+        { path: '*', element: <NotFound /> }
+      ]
     },
     {
-      path: "/",
+      path: '/',
       element: <AuthLayout />,
       children: [
-        { path: "SignIn", element: <SignIn /> },
-        { path: "SignUp", element: <Signup /> },
-      ],
-    },
-  ]);
+        { path: 'SignIn', element: <SignIn /> },
+        { path: 'SignUp', element: <Signup /> }
+      ]
+    }
+  ])
   return (
     <UserContextProvider>
+      <WishListContextProvider>
       <CartContextProvider>
         <RouterProvider router={routes}>
           <Offline>
-            <div className="offLine"> You are offline Now! </div>{" "}
-          </Offline>{" "}
-        </RouterProvider>{" "}
-        <ToastContainer theme="colored" autoClose={1500} />{" "}
-      </CartContextProvider>{" "}
+            <div className='offLine'> You are offline Now! </div>{' '}
+          </Offline>{' '}
+        </RouterProvider>{' '}
+        <ToastContainer theme='colored' autoClose={1500} />{' '}
+      </CartContextProvider>{' '}
+      </WishListContextProvider>{' '}
     </UserContextProvider>
-  );
+  )
 }
+

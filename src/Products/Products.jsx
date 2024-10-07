@@ -29,7 +29,8 @@ export default function Products() {
 
   return (
     <>
-    {loading?<div> <Loading/></div>:<div className='my-5 container pt-5'>
+    {loading?<div> <Loading/></div>:<div className='my-3 container pt-5'>
+      <div className= 'text-center '><h3 className='py-3 productTitle'><strong>Our Products</strong></h3></div>
       <div className="row">
         {products.map(item=>{
           return <Product item={item} key={item._id}/>

@@ -13,8 +13,8 @@ export default function Navbar() {
   let navigate = useNavigate()
 
   function signOut(){
-    localStorage.setItem('token' , '')
-    setUserToken('')
+    localStorage.setItem('userToken' , null)
+    setUserToken(null)
     navigate('/Home')  
   }
   
@@ -34,8 +34,8 @@ export default function Navbar() {
       <span className="navbar-toggler-icon" />
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      {userToken !== null ? <>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        {userToken !== '' ?<>
           <li className="nav-item">
           <NavLink className="nav-link" aria-current="page" to="/home">Home</NavLink>
         </li>
@@ -47,16 +47,15 @@ export default function Navbar() {
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/Products">Products</NavLink>
-        </li></>: '' }
-        
-      </ul>
+        </li>
+      </ul></>: null }
       
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 
-        {userToken !== '' ?<>
+        {userToken !== null ?<>
         <li className="nav-item border-start">
           <NavLink className="nav-link position-relative" to="/wishlist"> Wishlist
-          <i class="fa-regular fa-heart"></i>
+          <i className="fa-regular fa-heart"></i>
           <span className="position-absolute top-5 start-100 translate-middle badge rounded-pill bg-danger">
           </span></NavLink>
         </li>

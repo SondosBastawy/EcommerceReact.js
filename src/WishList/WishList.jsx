@@ -3,21 +3,24 @@ import { cartContext } from '../Context/CartContext'
 import Loading from '../Loading/Loading'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
+import { WishListContext } from '../Context/WishListContext'
 
 
 export default function WishList() {
+
+  let { addToCart, setCounter, counter } =useContext(cartContext)
+  let {getWishList, addToWishList } = useContext(WishListContext)
+  let [data, setData] = useState(null)
+  let [loading, setLoading] = useState(true)
 
   async function addProductToCart(productId){
     let data = await addToCart(productId)
     if (data.status === 'success'){
       toast.success('product added successfully')
-      // setCounter(data.numOfWishList)
+      setCounter(data.numOfCartItems)
+      
     }
   }
-
-  let { getWishList , addToCart } =useContext(cartContext)
-  let [data, setData] = useState(null)
-  let [loading, setLoading] = useState(true)
   
   useEffect(()=>{
     ( async ()=>{
@@ -38,9 +41,9 @@ export default function WishList() {
 
 if(loading) return <Loading/>
 if(data.numOfCartItems == 0 || data==null) return <div className='pt-5 mt-4 text-center'><h2 className=' text-main mt-5 pt-5'>Your WishList is empty</h2>
-<button className='btn bg-danger-subtle mt-2 p-3 '> <Link to={'/home'}> go shopping </Link></button></div>
+<button className='btn bg-danger-subtle mt-2 p-3 '> <Link to={'/home'}> <b>Go Shopping</b> </Link></button></div>
   return <>
-          <div className="container p-4 cursor-pointer rounded-2 mt-5 ">
+          <div className="container p-4 cursor-pointer rounded-2 mt-5 border-2 ">
           {data?.data.map(item=>(
         <Link to={'/product-details/'+ item._id} key={item._id}>
         <div className="row border-bottom" >

@@ -21,9 +21,9 @@ export default function SignIn() {
     await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', values)
     .then(({data}) =>{
       if (data.message === 'success'){
-        setUserToken(data.token)
+        setUserToken(data.userToken)
         navigate('/Home')
-        localStorage.setItem('token', data.token)
+        localStorage.setItem('userToken', data.token)
       }
     }).catch((err) =>{SetErrorMsg(err.response.data.message)})
     setLoading(true)

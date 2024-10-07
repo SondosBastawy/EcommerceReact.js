@@ -35,10 +35,10 @@ let [loading, setLoading] = useState(true)
   <Slider {...settings}>
   {
     categories.map((item)=> ( 
-      <Link to={'/subCategories/'+ item._id}>
+      <Link to={'/subCategories/'+ item._id} key={item._id}>
       <div className="px-1 cursor-pointer border rounded-2 bg-light p-2 m-1 category" key={item._id}>
         <img src={item.image}  height={180} className='w-100' alt=""/>
-        <h5 className='font-weight-bold'>{item.name}</h5>
+        <h5 className='font-weight-bold p-1'>{item.name}</h5>
         </div>
       </Link>
   ))

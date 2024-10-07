@@ -2,11 +2,13 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { cartContext } from '../Context/CartContext'
 import { toast } from 'react-toastify'
+import { WishListContext } from '../Context/WishListContext'
 
 
 export default function Product({item}) {
 
-  let {counter, setCounter , addToCart, addToWishList }=useContext(cartContext)
+  let {counter, setCounter , addToCart }=useContext(cartContext)
+  let { addToWishList} = useContext(WishListContext)
 
   async function addProductToCart(productId){
     let data = await addToCart(productId)
@@ -36,7 +38,7 @@ export default function Product({item}) {
               <h6>{item.ratingsAverage}<i className="fa-solid fa-star rating-color"></i></h6>
             </div>
            </Link>
-           <button className='wishIcon cursor-pointer m-1'onClick={()=>(addProductToWishList(item._id))}><i class="fa-regular fa-heart"></i></button>
+           <button className='wishIcon cursor-pointer m-1'onClick={()=>(addProductToWishList(item._id))}><i className="fa-regular fa-heart"></i></button>
             <button className='btn bg-main text-white m-1' onClick={()=>(addProductToCart(item._id))}> <i className="fa-solid fa-plus"></i> Add to Cart </button>
             </div>
           </div>
